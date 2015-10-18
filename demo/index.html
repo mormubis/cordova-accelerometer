@@ -8,6 +8,47 @@
     <link rel="import" href="../cordova-accelerometer.html">
   </head>
   <body unresolved>
-    <cordova-accelerometer></cordova-accelerometer>
+    <cordova-accelerometer
+      auto
+      loop
+      period="1000"
+      ></cordova-accelerometer>
+    <section>
+      <header>
+        <h1>Accelerometer information</h1>
+      </header>
+      <main>
+        Wow! You move your device <label class="x">[X]</label>cm left/right,
+        <label class="y">[Y]</label>cm upside/down and <label class="z">[Z]</label>cm away from you,
+        since you load this page.
+      </main>
+    </section>
+    <script>
+      var accelerometerEl = document.querySelector('cordova-accelerometer'),
+        distanceX = distanceY = distanceZ = 0,
+        time;
+
+      accelerometerEl.addEventListener('x-changed', function(x) {
+        if (!time) time = Date.now();
+        else {
+          distanceX += (Date.now() - time) / 1000 * x;
+          document.querySelector('.x').innerHTML = distanceX;
+        }
+      });
+      accelerometerEl.addEventListener('y-changed', function(y) {
+        if (!time) time = Date.now();
+        else {
+          distanceY += (Date.now() - time) / 1000 * y;
+          document.querySelector('.y').innerHTML = distanceY;
+        }
+      });
+      accelerometerEl.addEventListener('z-changed', function(z) {
+        if (!time) time = Date.now();
+        else {
+          distanceZ += (Date.now() - time) / 1000 * z;
+          document.querySelector('.z').innerHTML = distanceZ;
+        }
+      });
+    </script>
   </body>
 </html>

@@ -7,13 +7,13 @@ Polymer
       reflectToAttribute: yes
       type: Boolean
       value: false
-    ### If true, will watch over again, every time it is finished. ###
+    ### If true, will watch over again, every period is finished. ###
     loop:
       reflectToAttribute: yes
       observer: "_observeLoop"
       type: Boolean
       value: false
-    ### Period of updates with acceleration data in Milliseconds. ###
+    ### Time between updates of acceleration data in Milliseconds. ###
     period:
       reflectToAttribute: yes
       type: Number
