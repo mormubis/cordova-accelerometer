@@ -48,9 +48,6 @@ Polymer
     @_setY acceleration.y
     @_setZ acceleration.z
 
-  attached: ->
-    @watch() if @auto
-
   ### Stop watching the Acceleration ###
   clearWatch: ->
     if @ready and @watchId?

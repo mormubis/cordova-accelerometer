@@ -69,11 +69,6 @@
       this._setY(acceleration.y);
       return this._setZ(acceleration.z);
     },
-    attached: function() {
-      if (this.auto) {
-        return this.watch();
-      }
-    },
 
     /* Stop watching the Acceleration */
     clearWatch: function() {
