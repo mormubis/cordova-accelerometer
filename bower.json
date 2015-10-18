@@ -16,7 +16,7 @@
   "homepage": "https://github.com/adelarosab/cordova-accelerometer/",
   "dependencies": {
     "polymer": "Polymer/polymer#^1.1.0",
-    "cordova-device": "~0.1.3"
+    "cordova-device": "^1.0.0"
   },
   "devDependencies": {
     "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"

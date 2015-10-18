@@ -3,32 +3,60 @@
   Polymer({
     is: "cordova-accelerometer",
     properties: {
+
+      /* If true, automatically performs watch when device is ready. */
       auto: {
+        reflectToAttribute: true,
         type: Boolean,
         value: false
       },
+
+      /* If true, will watch over again, every time it is finished. */
       loop: {
+        reflectToAttribute: true,
+        observer: "_observeLoop",
         type: Boolean,
         value: false
       },
+
+      /* Period of updates with acceleration data in Milliseconds. */
       period: {
+        reflectToAttribute: true,
         type: Number,
-        value: 3
+        value: 3000
       },
+
+      /* Return if cordova deviceready event has been fired. */
+      ready: {
+        notify: true,
+        observer: "_observeReady",
+        readOnly: true,
+        reflectToAttribute: true
+      },
+
+      /* Amount of acceleration on the x-axis. (in m/s^2) */
       x: {
         notify: true,
-        readOnly: true,
-        reflectToAttribute: true
+        readOnly: true
       },
+
+      /* Amount of acceleration on the y-axis. (in m/s^2) */
       y: {
         notify: true,
-        readOnly: true,
-        reflectToAttribute: true
+        readOnly: true
       },
+
+      /* Amount of acceleration on the z-axis. (in m/s^2) */
       z: {
         notify: true,
-        readOnly: true,
-        reflectToAttribute: true
+        readOnly: true
+      }
+    },
+    _observeLoop: function() {
+      if (this.loop) {
+        return this.watch();
+      } else {
+        return this.clearWatch();
       }
     },
     _setAcceleration: function(acceleration) {
@@ -41,16 +69,27 @@
         return this.watch();
       }
     },
+
+    /* Stop watching the Acceleration */
+    clearWatch: function() {
+      if (this.ready && (this.watchId != null)) {
+        navigator.accelerometer.clearWatch(this.watchId);
+        this.loop = false;
+        return this.watchId = null;
+      }
+    },
+
+    /* Get the current acceleration along the x, y, and z axes. If loop is set, it
+     gets acceleration at regular interval.
+     */
     watch: function() {
-      return this.$.enabler.promise.then((function(_this) {
-        return function() {
-          var fn;
-          fn = _this.loop ? "watchAcceleration" : "getCurrentAcceleration";
-          return navigator.accelerometer[fn](_this._setAcceleration, _this.fire.bind(_this, "cordova-accelerometer"), {
-            period: _this.period
-          });
-        };
-      })(this));
+      var fn;
+      if (this.ready) {
+        fn = this.loop ? "watchAcceleration" : "getCurrentAcceleration";
+        return this.watchId = navigator.accelerometer[fn](this._setAcceleration, this.fire.bind(this, "cordova-accelerometer"), {
+          period: this.period
+        });
+      }
     }
   });
 
