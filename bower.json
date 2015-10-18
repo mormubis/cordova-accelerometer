@@ -1,12 +1,13 @@
 {
   "name": "cordova-accelerometer",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "authors": [
     "Adrian de la Rosa <adrian@delarosab.me>"
   ],
   "description": "An element providing access to accelerometer for cordova applications.",
   "keywords": [
     "web-component",
+    "web-components",
     "polymer",
     "cordova",
     "accelerometer"
