@@ -59,6 +59,11 @@
         return this.clearWatch();
       }
     },
+    _observeReady: function() {
+      if (this.auto) {
+        return this.watch();
+      }
+    },
     _setAcceleration: function(acceleration) {
       this._setX(acceleration.x);
       this._setY(acceleration.y);

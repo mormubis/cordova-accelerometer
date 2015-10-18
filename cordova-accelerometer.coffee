@@ -40,6 +40,9 @@ Polymer
   _observeLoop: ->
     if @loop then @watch() else @clearWatch()
 
+  _observeReady: ->
+    @watch() if @auto
+
   _setAcceleration: (acceleration) ->
     @_setX acceleration.x
     @_setY acceleration.y
