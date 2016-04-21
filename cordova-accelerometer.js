@@ -75,7 +75,7 @@
       if (this.ready && (this.watchId != null)) {
         navigator.accelerometer.clearWatch(this.watchId);
         this.loop = false;
-        return this.watchId = null;
+        this.watchId = null;
       }
     },
 
@@ -86,7 +86,7 @@
       var fn;
       if (this.ready) {
         fn = this.loop ? "watchAcceleration" : "getCurrentAcceleration";
-        return this.watchId = navigator.accelerometer[fn](this._setAcceleration, this.fire.bind(this, "cordova-accelerometer"), {
+        this.watchId = navigator.accelerometer[fn](this._setAcceleration, this.fire.bind(this, "cordova-accelerometer"), {
           period: this.period
         });
       }
