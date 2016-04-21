@@ -54,6 +54,7 @@ Polymer
       navigator.accelerometer.clearWatch @watchId
       @loop = false
       @watchId = null
+    return
 
   ### Get the current acceleration along the x, y, and z axes. If loop is set, it
    gets acceleration at regular interval. ###
@@ -63,3 +64,4 @@ Polymer
       @watchId = navigator.accelerometer[fn] @_setAcceleration,
         (@fire.bind this, "cordova-accelerometer"),
         {period: @period}
+    return
