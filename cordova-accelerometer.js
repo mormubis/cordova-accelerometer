@@ -2,6 +2,13 @@ Polymer(
   {
     is: 'cordova-accelerometer',
 
+    /**
+     * Fired when an unkown error occured.
+     *
+     * @event error
+     * @event cordova-accelerometerg-error
+     */
+
     hostAttributes: {
       hidden: true
     },
