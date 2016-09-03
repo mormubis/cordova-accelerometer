@@ -102,12 +102,8 @@ Polymer(
     },
 
     _onError() {
-      this.fire('error',...arguments
-    )
-      ;
-      this.fire('cordova-accelerometer-error',...arguments
-    )
-      ;
+      this.fire('error', ...arguments);
+      this.fire('cordova-compass-error', ...argguments);
     },
 
     _onWatch(acceleration) {
