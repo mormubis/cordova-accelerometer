@@ -1,10 +1,10 @@
 {
   "name": "cordova-accelerometer",
-  "version": "1.0.3",
+  "version": "1.2.0",
   "authors": [
     "Adrian de la Rosa <adrian@delarosab.me>"
   ],
-  "description": "An element providing access to accelerometer for cordova applications.",
+  "description": "An element providing access to the device's accelerometer.",
   "keywords": [
     "web-component",
     "web-components",
@@ -16,10 +16,10 @@
   "license": "https://raw.githubusercontent.com/adelarosab/cordova-accelerometer/master/LICENSE",
   "homepage": "https://github.com/adelarosab/cordova-accelerometer/",
   "dependencies": {
-    "polymer": "Polymer/polymer#^1.1.0",
-    "cordova-device": "^1.0.0"
+    "polymer": "^1.6.1",
+    "cordova-core": "^1.2.0"
   },
   "devDependencies": {
-    "iron-component-page": "PolymerElements/iron-component-page#^1.0.0"
+    "iron-component-page": "^1.1.7"
   }
 }

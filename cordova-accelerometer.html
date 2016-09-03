@@ -1,13 +1,17 @@
-<link rel="import" href="../polymer/polymer.html">
+<link href="../polymer/polymer.html"
+  rel="import">
+<link href="../cordova-core/cordova-core.html"
+  rel="import">
+
 <!--
-An element providing access to accelerometer for cordova applications.
+An element providing access to the device's accelerometer.
 
 Example:
 
     <cordova-accelerometer
       auto
       loop
-      period="1000"
+      period="3000"
       ></cordova-accelerometer>
 
 @group Cordova Elements
@@ -16,7 +20,9 @@ Example:
 -->
 <dom-module id="cordova-accelerometer">
   <template>
-    <cordova-device ready="{{ready}}"></cordova-device>
+    <cordova-core
+      paused="{{_paused_}}"
+      ready="{{_ready_}}"></cordova-core>
   </template>
+  <script src="cordova-accelerometer.js"></script>
 </dom-module>
-<script src="cordova-accelerometer.js"></script>

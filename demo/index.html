@@ -1,17 +1,29 @@
 <!doctype html>
 <html>
   <head>
+    <link rel="import" href="../cordova-accelerometer.html">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-    <title>cordova-accelerometer Demo</title>
-    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
-    <link rel="import" href="../cordova-accelerometer.html">
+
+    <title>cordova-compass Demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
   </head>
-  <body unresolved>
+  <body>
+    <style>
+      body {
+        font-family: Roboto, sans-serif;
+      }
+
+      label {
+        font-weight: bold;
+      }
+    </style>
     <cordova-accelerometer
       auto
       loop
-      period="1000"
+      period="5000"
       ></cordova-accelerometer>
     <section>
       <header>
